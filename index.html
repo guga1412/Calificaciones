@@ -20,7 +20,8 @@
                      
                         $.ajax({
                             type:"POST",
-                            url:"DatosAlumnos.php", //envio.php
+                           // url:"DatosAlumnos.php", //envio.php
+                           url:"http://guga141292.260mb.net/envio.php",
                             
                            
                             data:"Nombre="+nom+"&apellidoP="+app+"&apellidoM="+apm+"&tel="+tel+"&direc="+direc,
@@ -52,9 +53,9 @@
                      
                         $.ajax({
                             type:"POST",
-                            url:"Calificaciones.php", //envio.php
+                            /*url:"Calificaciones.php", //envio.php*/
                             
-                           /* url:"http://loguz1.260mb.net/envio.php",*/
+                           url:"http://guga141292.260mb.net/envio.php",
                             data:"ParcialUno="+PU+"&ParcialDos="+PD+"&ParcialTres="+PT+"&ParcialCuatro="+PC,
                             success: recepcion2
                             
