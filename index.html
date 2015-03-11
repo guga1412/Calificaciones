@@ -20,8 +20,8 @@
                      
                         $.ajax({
                             type:"POST",
-                           // url:"DatosAlumnos.php", //envio.php
-                           url:"http://guga141292.260mb.net/DatosAlumnos.php",
+                           //url:"DatosAlumnos.php", //envio.php
+                           url:"http://guga121492.260mb.net/envio.php",
                             
                            
                             data:"Nombre="+nom+"&apellidoP="+app+"&apellidoM="+apm+"&tel="+tel+"&direc="+direc,
@@ -32,7 +32,7 @@
                         
                        });
                        function recepcion(datos) {
-                        alert("Listo"+ datos);
+                        alert("Datos Guardados exitosamente");
                        var resp=$("#respuesta");
                        resp.html(datos);
                        }
@@ -53,9 +53,9 @@
                      
                         $.ajax({
                             type:"POST",
-                            /*url:"Calificaciones.php", //envio.php*/
+                          //  url:"Calificaciones.php", //envio.php
                             
-                           url:"http://guga141292.260mb.net/Calificaciones.php",
+                            url:"http://guga121492.260mb.net/envio.php",
                             data:"ParcialUno="+PU+"&ParcialDos="+PD+"&ParcialTres="+PT+"&ParcialCuatro="+PC,
                             success: recepcion2
                             
@@ -64,7 +64,7 @@
                         
                        });
                        function recepcion2(datos) {
-                        alert("Listo"+ datos);
+                        alert("datos guardados exitosamente");
                        var resp=$("#respuesta");
                        resp.html(datos);
                        }
@@ -122,15 +122,18 @@
                 <input type="text" name="tel" id="tel"/>
                 <label for="direc">Dirección:</label>
                 <input type="text" name="direc" id="direc"/>
-                
-                   
+                <input type="button" name="enviar" id="enviar" value="Registar Datos"><br>
+                    </form>
+                 
                 </div>
                     
                 <div data-role="footer">
-                    <input type="button" name="enviar" id="enviar" value="Registar Datos">
+                    
                     <p>ITSL</p>
                 </div>
-
+<div data-trasition="flip" id="respuesta">
+                        
+                    </div>
             </div>
                 </div>
             
@@ -154,10 +157,14 @@
       <input type="text" name="ParcialTres" id="ParcialTres"/>
       <label for="ParcialCuatro">Calificación del Cuarto parcial:</label>
       <input type="text" name="ParcialCuatro" id="ParcialCuatro"/>
-      
-                </div>   
+      <input type="button" name="enviar2" id="enviar2" value="Guardar">
+                    </form>
+                </div>
+                    <div data-trasition="flip" id="respuesta">
+                        
+                    </div>
                 <div data-role="footer">
-                    <input type="button" name="enviar2" id="enviar2" value="Guardar">
+                    
                 <p>ITSL</p>
                 </div>
             </div>
