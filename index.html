@@ -1,0 +1,166 @@
+<!DOCTYPE html -->
+    <html>
+        <head>
+            <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+            <script src="js/jquery.min.js"></script>
+            <script src="js/jquery.mobile-1.4.5.min.js"></script>
+            <title> Registro de califiaciones </title>
+                 <script type="text/javascript">
+
+                    $(document).ready(function inicio(){
+                    var btnEnvio=$("#enviar");
+                    btnEnvio.click(function enviarDatos(){
+                    var nom=$("#nombre").val();
+                    var app=$("#apellidoP").val();
+                    var apm=$("#apellidoM").val();
+                    var tel=$("#tel").val();
+                    var direc=$("#direc").val();
+                   
+ 
+                     
+                        $.ajax({
+                            type:"POST",
+                            url:"DatosAlumnos.php", //envio.php
+                            
+                           
+                            data:"Nombre="+nom+"&apellidoP="+app+"&apellidoM="+apm+"&tel="+tel+"&direc="+direc,
+                            success: recepcion
+                            
+                            });
+                        
+                        
+                       });
+                       function recepcion(datos) {
+                        alert("Listo"+ datos);
+                       var resp=$("#respuesta");
+                       resp.html(datos);
+                       }
+                        });
+                    
+                    
+
+//Calificaciones
+                    $(document).ready(function inicio2(){
+                    var btnEnvio2=$("#enviar2");
+                    btnEnvio2.click(function enviarDatos2(){
+                    var PU=$("#ParcialUno").val();
+                    var PD=$("#ParcialDos").val();
+                    var PT=$("#ParcialTres").val();
+                    var PC=$("#ParcialCuatro").val();
+
+ 
+                     
+                        $.ajax({
+                            type:"POST",
+                            url:"Calificaciones.php", //envio.php
+                            
+                           /* url:"http://loguz1.260mb.net/envio.php",*/
+                            data:"ParcialUno="+PU+"&ParcialDos="+PD+"&ParcialTres="+PT+"&ParcialCuatro="+PC,
+                            success: recepcion2
+                            
+                            });
+                        
+                        
+                       });
+                       function recepcion2(datos) {
+                        alert("Listo"+ datos);
+                       var resp=$("#respuesta");
+                       resp.html(datos);
+                       }
+                        });
+                     
+                 </script>
+                  
+                 </script>
+            <style type="text/css">
+                p{
+                    text-align: center;
+                
+                }
+            </style>
+            <script type="text/javascript">
+              
+            </script>
+        </head>
+        <body >
+            <div data-role="page" id="Principal">
+                <div data-role="header">
+                    <p>Selecciona un boton según lo requieras</p>
+                </div>
+                <div data-role="content">
+                    <p>Menú</p>
+
+                    <a href="#Pagina2" data-role="button" data-transition="slideup">Datos Alumnos</a>
+                    <a href="#Pagina3" data-role="button" data-transition="slideup">Calificaciones</a>
+                   
+                </div>
+                <div data-role="footer">
+                    <p>Alondra Guerrero Gonzalez</p>
+                </div>
+            </div>
+            
+            <div data-role="page" id="Pagina2">
+                <div data-role="header">
+                    <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar
+                    data-add-back-btn="true" data-icon="home">Regresar</a>
+                    
+                    <p>Datos Alumnos</p>
+                </div>
+                <div data-role="content">
+                    <p>Por favor ingresa los datos que se te piden sin dejar ninguno en blanco</p>
+                
+                    <form method="post" action="DatosAlumnos.php">
+                    <div class="ui-field-contain">
+                <label for="nombre">Nombre:</label>
+                <input type="text" name="nombre" id="nombre"/>
+                <label for="apellidoP">Apellido Paterno:</label>
+                <input type="text" name="apellidoP" id="apellidoP"/>
+                <label for="apellidoM">Apellido Materno:</label>
+                <input type="text" name="apellidoM" id="apellidoM"/>
+                <label for="tel">Teléfono:</label>
+                <input type="text" name="tel" id="tel"/>
+                <label for="direc">Dirección:</label>
+                <input type="text" name="direc" id="direc"/>
+                
+                   
+                </div>
+                    
+                <div data-role="footer">
+                    <input type="button" name="enviar" id="enviar" value="Registar Datos">
+                    <p>ITSL</p>
+                </div>
+
+            </div>
+                </div>
+            
+ <div data-role="page" id="Pagina3">
+                <div data-role="header">
+                    <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar
+                    data-add-back-btn="true" data-icon="home">Regresar</a>
+                    
+                    <p>Calificaciones</p>
+                </div>
+                <div data-role="content">
+                    <p>Por favor ingresa los datos que se te piden sin dejar ninguno en blanco</p>
+                
+                    <form method="post" action="Calificaciones.php">
+                    <div class="ui-field-contain">
+      <label for="ParcialUno">Calificación del primer parcial:</label>
+      <input type="text" name="ParcialUno" id="ParcialUno"/>
+      <label for="ParcialDos">Calificación del segundo parcial:</label>
+      <input type="text" name="ParcialDos" id="ParcialDos"/>
+      <label for="ParcialTres">Calificación del tercer parcial:</label>
+      <input type="text" name="ParcialTres" id="ParcialTres"/>
+      <label for="ParcialCuatro">Calificación del Cuarto parcial:</label>
+      <input type="text" name="ParcialCuatro" id="ParcialCuatro"/>
+      
+                </div>   
+                <div data-role="footer">
+                    <input type="button" name="enviar2" id="enviar2" value="Guardar">
+                <p>ITSL</p>
+                </div>
+            </div>
+ </div>
+
+        </body>
+    </html>
