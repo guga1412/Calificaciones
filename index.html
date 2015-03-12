@@ -22,7 +22,7 @@
                         $.ajax({
                             type:"POST",
                            //url:"DatosAlumnos.php", //envio.php
-                           url:"http://guga121492.260mb.net/DatosAlumnos.php",
+                           url:"http://guga141292.260mb.net/DatosAlumnos.php",
                             
                            
                             data:"Nombre="+nom+"&apellidoP="+app+"&apellidoM="+apm+"&tel="+tel+"&direc="+direc,
@@ -33,7 +33,7 @@
                         
                        });
                        function recepcion(datos) {
-                       // alert("Datos Guardados exitosamente");
+                      alert("Datos Guardados exitosamente"+datos);
                        var resp=$("#respuesta");
                        resp.html(datos);
                        }
@@ -56,16 +56,18 @@
                             type:"POST",
                           //  url:"Calificaciones.php", //envio.php
                             
-                            url:"http://guga121492.260mb.net/Calificaciones.php",
+                            url:"http://guga141292.260mb.net/Calificaciones.php",
                             data:"ParcialUno="+PU+"&ParcialDos="+PD+"&ParcialTres="+PT+"&ParcialCuatro="+PC,
                             success: recepcion2
                             
-                            });
+                            });                  
+                  
+
                         
                         
                        });
                        function recepcion2(datos) {
-                        alert("datos guardados exitosamente");
+                        alert("datos guardados exitosamente"+ datos);
                        var resp=$("#respuesta");
                        resp.html(datos);
                        }
