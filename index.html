@@ -4,10 +4,7 @@
             <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
             <script src="js/jquery.min.js"></script>
             <script src="js/jquery.mobile-1.4.5.min.js"></script>
-            <script type="text"/javascript" "charset=utf-8"
-scr="phonegap.js"></script>
             <title> Registro de califiaciones </title>
-            
                  <script type="text/javascript">
 
                     $(document).ready(function inicio(){
@@ -24,7 +21,7 @@ scr="phonegap.js"></script>
                         $.ajax({
                             type:"POST",
                            //url:"DatosAlumnos.php", //envio.php
-                           url:"http://guga121492.260mb.net/DatosAlumnos.php",
+                           url:"http://guga121492.260mb.net/envio.php",
                             
                            
                             data:"Nombre="+nom+"&apellidoP="+app+"&apellidoM="+apm+"&tel="+tel+"&direc="+direc,
@@ -35,7 +32,7 @@ scr="phonegap.js"></script>
                         
                        });
                        function recepcion(datos) {
-                        alert("Datos Guardados exitosamente");
+                       // alert("Datos Guardados exitosamente");
                        var resp=$("#respuesta");
                        resp.html(datos);
                        }
@@ -58,7 +55,7 @@ scr="phonegap.js"></script>
                             type:"POST",
                           //  url:"Calificaciones.php", //envio.php
                             
-                            url:"http://guga121492.260mb.net/Calificaciones.php",
+                            url:"http://guga121492.260mb.net/envio.php",
                             data:"ParcialUno="+PU+"&ParcialDos="+PD+"&ParcialTres="+PT+"&ParcialCuatro="+PC,
                             success: recepcion2
                             
@@ -125,13 +122,13 @@ scr="phonegap.js"></script>
                 <input type="text" name="tel" id="tel"/>
                 <label for="direc">Dirección:</label>
                 <input type="text" name="direc" id="direc"/>
-                
+                <input type="button" name="enviar" id="enviar" value="Registar Datos"><br>
                     </form>
                  
                 </div>
                     
                 <div data-role="footer">
-                    <input type="button" name="enviar" id="enviar" value="Registar Datos"><br>
+                    
                     <p>ITSL</p>
                 </div>
 <div data-trasition="flip" id="respuesta">
@@ -160,14 +157,14 @@ scr="phonegap.js"></script>
       <input type="text" name="ParcialTres" id="ParcialTres"/>
       <label for="ParcialCuatro">Calificación del Cuarto parcial:</label>
       <input type="text" name="ParcialCuatro" id="ParcialCuatro"/>
-      
+      <input type="button" name="enviar2" id="enviar2" value="Guardar">
                     </form>
                 </div>
                     <div data-trasition="flip" id="respuesta">
                         
                     </div>
                 <div data-role="footer">
-                 <input type="button" name="enviar2" id="enviar2" value="Guardar">   
+                    
                 <p>ITSL</p>
                 </div>
             </div>
