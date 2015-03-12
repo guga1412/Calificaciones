@@ -4,8 +4,7 @@
             <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
             <script src="js/jquery.min.js"></script>
             <script src="js/jquery.mobile-1.4.5.min.js"></script>
-            <script type="text"/javascript" "charset=utf-8"
-scr="phonegap.js"></script>
+            <script type="text"/javascript" "charset=utf-8" scr="phonegap.js"></script>
             <title> Registro de califiaciones </title>
                  <script type="text/javascript">
 
@@ -72,7 +71,7 @@ scr="phonegap.js"></script>
                        }
                         });
                      
-                 </script>
+
                   
                  </script>
             <style type="text/css">
@@ -83,7 +82,7 @@ scr="phonegap.js"></script>
             </style>
 
         </head>
-        <body >
+        <body>
             <div data-role="page" id="Principal">
                 <div data-role="header">
                     <p>Selecciona un boton según lo requieras</p>
@@ -102,8 +101,7 @@ scr="phonegap.js"></script>
             
             <div data-role="page" id="Pagina2">
                 <div data-role="header">
-                    <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar
-                    data-add-back-btn="true" data-icon="home">Regresar</a>
+                    <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar data-add-back-btn="true" data-icon="home">Regresar</a>
                     
                     <p>Datos Alumnos</p>
                 </div>
@@ -112,33 +110,30 @@ scr="phonegap.js"></script>
                
                     <form method="post" action="DatosAlumnos.php">
                     <div class="ui-field-contain">
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre"/>
-                <label for="apellidoP">Apellido Paterno:</label>
-                <input type="text" name="apellidoP" id="apellidoP"/>
-                <label for="apellidoM">Apellido Materno:</label>
-                <input type="text" name="apellidoM" id="apellidoM"/>
-                <label for="tel">Teléfono:</label>
-                <input type="text" name="tel" id="tel"/>
-                <label for="direc">Dirección:</label>
-                <input type="text" name="direc" id="direc"/>
-                <input type="button" name="enviar" id="enviar" value="Registar Datos"><br>
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" name="nombre" id="nombre"/>
+                    <label for="apellidoP">Apellido Paterno:</label>
+                    <input type="text" name="apellidoP" id="apellidoP"/>
+                    <label for="apellidoM">Apellido Materno:</label>
+                    <input type="text" name="apellidoM" id="apellidoM"/>
+                    <label for="tel">Teléfono:</label>
+                    <input type="text" name="tel" id="tel"/>
+                    <label for="direc">Dirección:</label>
+                    <input type="text" name="direc" id="direc"/>
+                    <input type="button" name="enviar" id="enviar" value="Registar Datos"><br>
                     </form>
                 </div>
-                    <div data-trasition="flip" id="respuesta">
-                        
-                    </div>
+                <div data-trasition="flip" id="respuesta">
+                </div>
                 <div data-role="footer">
-                    
-                <p>ITSL</p>
+                    <p>ITSL</p>
                 </div>
             </div>
 
             
- <div data-role="page" id="Pagina3">
+                <div data-role="page" id="Pagina3">
                 <div data-role="header">
-                    <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar
-                    data-add-back-btn="true" data-icon="home">Regresar</a>
+                    <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar  data-add-back-btn="true" data-icon="home">Regresar</a>
                     
                     <p>Calificaciones</p>
                 </div>
@@ -147,25 +142,25 @@ scr="phonegap.js"></script>
                 
                     <form method="post" action="Calificaciones.php">
                     <div class="ui-field-contain">
-      <label for="ParcialUno">Calificación del primer parcial:</label>
-      <input type="text" name="ParcialUno" id="ParcialUno"/>
-      <label for="ParcialDos">Calificación del segundo parcial:</label>
-      <input type="text" name="ParcialDos" id="ParcialDos"/>
-      <label for="ParcialTres">Calificación del tercer parcial:</label>
-      <input type="text" name="ParcialTres" id="ParcialTres"/>
-      <label for="ParcialCuatro">Calificación del Cuarto parcial:</label>
-      <input type="text" name="ParcialCuatro" id="ParcialCuatro"/>
-      <input type="button" name="enviar2" id="enviar2" value="Guardar">
+                    <label for="ParcialUno">Calificación del primer parcial:</label>
+                    <input type="text" name="ParcialUno" id="ParcialUno"/>
+                    <label for="ParcialDos">Calificación del segundo parcial:</label>
+                    <input type="text" name="ParcialDos" id="ParcialDos"/>
+                    <label for="ParcialTres">Calificación del tercer parcial:</label>
+                    <input type="text" name="ParcialTres" id="ParcialTres"/>
+                    <label for="ParcialCuatro">Calificación del Cuarto parcial:</label>
+                    <input type="text" name="ParcialCuatro" id="ParcialCuatro"/>
+                    <input type="button" name="enviar2" id="enviar2" value="Guardar">
                     </form>
-                </div>
-                    <div data-trasition="flip" id="respuesta">
-                        
                     </div>
-                <div data-role="footer">
+                    <div data-trasition="flip" id="respuesta">
+
+                    </div>
+                    <div data-role="footer">
                     
-                <p>ITSL</p>
+                    <p>ITSL</p>
+                    </div>
                 </div>
-            </div>
 
 
         </body>
