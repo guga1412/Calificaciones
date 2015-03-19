@@ -21,8 +21,8 @@
                      
                         $.ajax({
                             type:"POST",
-                           //url:"DatosAlumnos.php", //envio.php
-                           url:"http://guga141292.260mb.net/DatosAlumnos.php",
+                          //  url:"DatosAlumnos.php", //envio.php
+                          url:"http://guga121492.260mb.net/DatosAlumnos.php",
                             
                            
                             data:"Nombre="+nom+"&apellidoP="+app+"&apellidoM="+apm+"&tel="+tel+"&direc="+direc,
@@ -33,7 +33,7 @@
                         
                        });
                        function recepcion(datos) {
-                      alert("Datos Guardados exitosamente");
+                        alert("Datos Guardados exitosamente");
                        var resp=$("#respuesta");
                        resp.html(datos);
                        }
@@ -54,15 +54,12 @@
                      
                         $.ajax({
                             type:"POST",
-                          //  url:"Calificaciones.php", //envio.php
-                            
-                            url:"http://guga141292.260mb.net/Calificaciones.php",
+                            //url:"Calificaciones.php", //envio.php
+                            url:"http://guga121492.260mb.net/Calificaciones.php",
                             data:"ParcialUno="+PU+"&ParcialDos="+PD+"&ParcialTres="+PT+"&ParcialCuatro="+PC,
                             success: recepcion2
                             
-                            });                  
-                  
-
+                            });
                         
                         
                        });
@@ -71,9 +68,31 @@
                        var resp=$("#respuesta");
                        resp.html(datos);
                        }
+                       var btnconsAlu=$("#consultar");
+                       btnconsAlu.click(function cons(){
+                        $.ajax({
+                            type:"POST",
+                            url:"Consulta.php",
+                            data:"",
+                            success: ConsultaDatos
                         });
+                        function ConsultaDatos(datos) {
+                          // alert(datos);
+                          var respDatos=$.parseJSON(datos);
+                           var respuestaAlu=$("#ConsAlu");
+                           //respuestaAlu.html(datos); // esta linea hace la impresion de resultados en la pag directamente
+                           respuestaAlu.append("<table id='tab' border='1'>");
+                            var tabla=$("#tab");
+                           tabla.html("<tr><th>ID</th><th>Nombre</th><th>Apellido Paterno</th><th>Apellido Materno</th><th>Telefono</th><th>Direccion</th>");
+                           for ( var i in respDatos) {
+                            tabla.append("<tr><td>"+respDatos[i].Matricula+"</td>"+"<td>"+respDatos[i].Nombre+"</td>"+"<td>"+respDatos[i].ApellidoP+"</td>"+"<td>"+respDatos[i].ApellidoM+"</td>"+"<td>"+respDatos[i].Telefono+"</td>"+"<td>"+respDatos[i].Direccion+"</td>");
+                          }
+                           tabla.append("</table>");
+                        };
+                        });
+                       });
                      
-
+                 </script>
                   
                  </script>
             <style type="text/css">
@@ -82,9 +101,11 @@
                 
                 }
             </style>
-
+            <script type="text/javascript">
+              
+            </script>
         </head>
-        <body>
+        <body >
             <div data-role="page" id="Principal">
                 <div data-role="header">
                     <p>Selecciona un boton según lo requieras</p>
@@ -94,13 +115,16 @@
 
                     <a href="#Pagina2" data-role="button" data-transition="slideup">Datos Alumnos</a>
                     <a href="#Pagina3" data-role="button" data-transition="slideup">Calificaciones</a>
+                    <a href="#Pagina4" data-role="button" data-transition="slideup">Consultas</a>
+                    
                    
                 </div>
                 <div data-role="footer">
                     <p>Alondra Guerrero Gonzalez</p>
                 </div>
             </div>
-             <div data-role="page" id="Pagina2">
+            
+            <div data-role="page" id="Pagina2">
                 <div data-role="header">
                     <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar
                     data-add-back-btn="true" data-icon="home">Regresar</a>
@@ -159,17 +183,68 @@
       <input type="text" name="ParcialCuatro" id="ParcialCuatro"/>
       <input type="button" name="enviar2" id="enviar2" value="Guardar">
                     </form>
-                 
-                </div>
-                    
-                <div data-role="footer">
-                    
-                    <p>ITSL</p>
                 </div>
                     <div data-trasition="flip" id="respuesta">
                         
                     </div>
-            </div>
+                <div data-role="footer">
+                    
+                <p>ITSL</p>
                 </div>
+            </div>
+ </div>
+ 
+ <div data-role="page" id="Pagina4">
+                <div data-role="header">
+                    <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar
+                    data-add-back-btn="true" data-icon="home">Regresar</a>
+                    
+                    <p>Consultas</p>
+                </div>
+                <div data-role="content">
+                    <p>Selecciona una consulta</p>
+                
+                      </div>
+                <div
+                    <ul data-role="listview">
+                        <li><a href="#consultaA">Consulta Alumnos</a></li>
+                        <li><a href="#consultaC">Consulta Calificaciones</a></li>
+                    </ul>
+                </div>
+                
+                <div data-role="footer">
+                    
+                <p>ITSL</p>
+                </div>
+                  <div data-trasition="flip" id="respuesta">
+                        
+                    </div>
+            </div>
+ </div>
+
+
+
+ <div data-role="page" id="consultaA">
+                <div data-role="header">
+                    <a href="#Principal" data-role="button" data-transition="flip" data-add-back-btnRegresar
+                    data-add-back-btn="true" data-icon="home">Regresar</a>
+                    
+                    <p>Consultar Datos Alumnos</p>
+                </div>
+                <div data-role="content">
+                    <input type="button" id="consultar" value="Consultar Datos Alumnos">
+                        <div id="ConsAlu">
+                            
+                        </div>
+                </div>
+                
+                <div data-role="footer">
+                    
+                <p>ITSL</p>
+                </div>
+            </div>
+ </div>
+
+          
         </body>
     </html>
